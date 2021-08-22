@@ -40,12 +40,12 @@ Table of Contents
   * [cleanup\.py](#cleanuppy)
   * [app\_checker\.py](#app_checkerpy)
 * [Configuration](#configuration)
-  * [daemon\.py](#daemonpy)
+  * [For the daemon\.py](#for-the-daemonpy)
+  * [For the web server](#for-the-web-server)
+* [Run](#run)
 * [Tips](#tips)
   * [Django server for debugging](#django-server-for-debugging)
-  * [Install](#install)
-  * [Run](#run)
-  * [Configure](#configure)
+* [Install](#install)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
