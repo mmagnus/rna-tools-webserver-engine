@@ -110,19 +110,68 @@ So the full crontab setup can look like this:
 	@reboot /home/rpdock/web/startweb-screen.sh
     
 # Configuration
-## `daemon.py`
+## For the `daemon.py`
 
 	MAX_RUNNING = 4  # number of jobs max
 	DISK_SPACE_LIMIT = 20  # each 4 of jobs 5gb = 20g free must be
 	keep data for 4d
+
+## For the web server
+
+Go to web.settings for full configuration:
+
+    SERVER_NAME = 'RNAMasonry'
+    ADMIN_JOBS_URL = 'http://0.0.0.0:8667/admin/app/job/'
+    DISK_TO_TRACK = '/dev/mapper/rnamasonry--vm--vg-root'
+    import os; 
+    PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)) 
+    JOBS_PATH = PATH + os.sep + 'media' + os.sep + 'jobs'
+    URL_JOBS = "http://iimcb.genesilico.pl/rnamsonry/jobs/"  # required /
+    URL = "http://iimcb.genesilico.pl/rnamasonry" # / is not needed"
+    DEBUG = True
+    TEMPLATE_DEBUG = False
+    PATH_TO_RM = ''
+    POWER_USERS = ['magnus@genesilico.pl']
+    SEND_EACH_MAIL_TO_ADMIN = False
+    SERVER_REPLY_MAIL = 'rnamasonry@genesilico.pl'
+    ADMIN_MAIL = 'magnus@genesilico.pl' # used for sendmail
+    ADMINS = (
+         ('magnus', 'mag_dex@o2.pl'),
+         #('chojnowski', 'gchojnowski@gmail.com')
+    )
+# Run
+-------------------------------------------------------------------------------
+    
+    (py27) [mx] rnamasonry$ git:(master) ✗ source ../bin/activate
+    
+    (rnamasonry_env) (py27) [mx] rnamasonry$ git:(master) ✗ python manage.py runserver --settings web.settings 0.0.0.0:8667
+    Performing system checks...
+
+    System check identified some issues:
+
+    WARNINGS:
+    app.Job.interpret_occupancy: (fields.W122) 'max_length' is ignored when used with IntegerField
+        HINT: Remove 'max_length' from field
+    app.Job.nsteps: (fields.W122) 'max_length' is ignored when used with IntegerField
+        HINT: Remove 'max_length' from field
+    app.Job.seq_len: (fields.W122) 'max_length' is ignored when used with IntegerField
+        HINT: Remove 'max_length' from field
+    app.Job.status: (fields.W122) 'max_length' is ignored when used with IntegerField
+        HINT: Remove 'max_length' from field
+
+    System check identified 4 issues (0 silenced).
+    April 16, 2020 - 18:20:58
+    Django version 1.8, using settings 'web.settings'
+    Starting development server at http://0.0.0.0:8667/
+    Quit the server with CONTROL-C.
 
 # Tips
 ## Django server for debugging
 
 You can use also internal version for debugging under http://rpdock-vm:8000/ (this panel can be accessed only within a local network or using VPN, this protects this panel from access outside the secure network).
 
-Install
--------------------------------------------------------------------------------
+# Install
+
 
     (py27) [mx] src$ pip install virtualenv
 
@@ -154,53 +203,3 @@ Install
     Requirement already satisfied: appnope; sys_platform == "darwin" in /Users/magnus/work/src/rnamasonry_env/lib/python2.7/site-packages (from ipython==4.0.1->-r install.txt (line 8)) (0.1.0)
     Requirement already satisfied: gnureadline; sys_platform == "darwin" and platform_python_implementation == "CPython" in /Users/magnus/work/src/rnamasonry_env/lib/python2.7/site-packages (from ipython==4.0.1->-r install.txt (line 8)) (8.0.0)
 
-Run
--------------------------------------------------------------------------------
-    
-    (py27) [mx] rnamasonry$ git:(master) ✗ source ../bin/activate
-    
-    (rnamasonry_env) (py27) [mx] rnamasonry$ git:(master) ✗ python manage.py runserver --settings web.settings 0.0.0.0:8667
-    Performing system checks...
-
-    System check identified some issues:
-
-    WARNINGS:
-    app.Job.interpret_occupancy: (fields.W122) 'max_length' is ignored when used with IntegerField
-        HINT: Remove 'max_length' from field
-    app.Job.nsteps: (fields.W122) 'max_length' is ignored when used with IntegerField
-        HINT: Remove 'max_length' from field
-    app.Job.seq_len: (fields.W122) 'max_length' is ignored when used with IntegerField
-        HINT: Remove 'max_length' from field
-    app.Job.status: (fields.W122) 'max_length' is ignored when used with IntegerField
-        HINT: Remove 'max_length' from field
-
-    System check identified 4 issues (0 silenced).
-    April 16, 2020 - 18:20:58
-    Django version 1.8, using settings 'web.settings'
-    Starting development server at http://0.0.0.0:8667/
-    Quit the server with CONTROL-C.
-
-Configure
--------------------------------------------------------------------------------
-
-Go to web.settings for full configuration:
-
-    SERVER_NAME = 'RNAMasonry'
-    ADMIN_JOBS_URL = 'http://0.0.0.0:8667/admin/app/job/'
-    DISK_TO_TRACK = '/dev/mapper/rnamasonry--vm--vg-root'
-    import os; 
-    PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)) 
-    JOBS_PATH = PATH + os.sep + 'media' + os.sep + 'jobs'
-    URL_JOBS = "http://iimcb.genesilico.pl/rnamsonry/jobs/"  # required /
-    URL = "http://iimcb.genesilico.pl/rnamasonry" # / is not needed"
-    DEBUG = True
-    TEMPLATE_DEBUG = False
-    PATH_TO_RM = ''
-    POWER_USERS = ['magnus@genesilico.pl']
-    SEND_EACH_MAIL_TO_ADMIN = False
-    SERVER_REPLY_MAIL = 'rnamasonry@genesilico.pl'
-    ADMIN_MAIL = 'magnus@genesilico.pl' # used for sendmail
-    ADMINS = (
-         ('magnus', 'mag_dex@o2.pl'),
-         #('chojnowski', 'gchojnowski@gmail.com')
-    )
