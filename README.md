@@ -34,7 +34,6 @@ Let me know if you need any help to set it up for yourself (--@mmagnus).
 Table of Contents
 =================
 
-* [webserver\-engine](#webserver-engine)
 * [Components](#components)
 * [The details](#the-details)
   * [\.sh vs \.py](#sh-vs-py)
