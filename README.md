@@ -136,8 +136,7 @@ Go to web.settings for full configuration:
     SERVER_REPLY_MAIL = 'rnamasonry@genesilico.pl'
     ADMIN_MAIL = 'magnus@genesilico.pl' # used for sendmail
     ADMINS = (
-         ('magnus', 'mag_dex@o2.pl'),
-         #('chojnowski', 'gchojnowski@gmail.com')
+         ('magnus', 'mag_dexxxxxxxo2.pl'),
     )
 # Run
 -------------------------------------------------------------------------------
