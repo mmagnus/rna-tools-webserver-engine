@@ -31,6 +31,17 @@ Let me know if you need any help to set it up for yourself (--@mmagnus).
 
 ![](docs/demo.png)
 
+# Components
+
+Usually the server has 2 components, the web server itself and then main tool the server was build for, e.g., for NPDock this is `npdock_web` and npdock app with some extra program for Monte Carlo refinement, `npdock_mc`:
+
+Server:
+- npdock server `npdock_web`
+
+The main program:
+- npdock (run_gramm) `npdock`
+- Refinement of RNA/DNA-protein complexes, `npdock_mc`
+
 # The details
 
 There is also a Django admin panel where you can view and control all the jobs. You can access this panel under `http://<ip/url>:8000/admin/login/?next=/admin/`, e.g., `http://rpdock-vm:8000/admin/login/?next=/admin/` (this panel can be accessed only within a local network or using VPN, this protects this panel from access outside the secure network).
@@ -80,6 +91,18 @@ So the full crontab setup can look like this:
 	0 * * * * /home/rpdock/web/cleanup.sh --go
 	@reboot /home/rpdock/web/startweb-screen.sh
     
+# Configuration
+## `daemon.py`
+
+	MAX_RUNNING = 4  # number of jobs max
+	DISK_SPACE_LIMIT = 20  # each 4 of jobs 5gb = 20g free must be
+	keep data for 4d
+
+# Tips
+## Django server for debugging
+
+You can use also internal version for debugging under http://rpdock-vm:8000/ (this panel can be accessed only within a local network or using VPN, this protects this panel from access outside the secure network).
+
 Install
 -------------------------------------------------------------------------------
 
