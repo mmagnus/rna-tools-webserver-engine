@@ -31,6 +31,25 @@ Let me know if you need any help to set it up for yourself (--@mmagnus).
 
 ![](docs/demo.png)
 
+Table of Contents
+=================
+
+* [webserver\-engine](#webserver-engine)
+* [Components](#components)
+* [The details](#the-details)
+  * [\.sh vs \.py](#sh-vs-py)
+  * [cleanup\.py](#cleanuppy)
+  * [app\_checker\.py](#app_checkerpy)
+* [Configuration](#configuration)
+  * [daemon\.py](#daemonpy)
+* [Tips](#tips)
+  * [Django server for debugging](#django-server-for-debugging)
+  * [Install](#install)
+  * [Run](#run)
+  * [Configure](#configure)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
+
 # Components
 
 Usually the server has 2 components, the web server itself and then main tool the server was build for, e.g., for NPDock this is `npdock_web` and npdock app with some extra program for Monte Carlo refinement, `npdock_mc`:
