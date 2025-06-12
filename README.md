@@ -202,3 +202,13 @@ You can use also internal version for debugging under http://rpdock-vm:8000/ (th
     Requirement already satisfied: appnope; sys_platform == "darwin" in /Users/magnus/work/src/rnamasonry_env/lib/python2.7/site-packages (from ipython==4.0.1->-r install.txt (line 8)) (0.1.0)
     Requirement already satisfied: gnureadline; sys_platform == "darwin" and platform_python_implementation == "CPython" in /Users/magnus/work/src/rnamasonry_env/lib/python2.7/site-packages (from ipython==4.0.1->-r install.txt (line 8)) (8.0.0)
 
+## Create superuser account
+
+	
+	$ python manage.py createsuperuser
+
+	Username (leave blank to use 'magnus'): admin
+	Email address: 
+	Password:
+	Password (again):
+	Superuser created successfully.
