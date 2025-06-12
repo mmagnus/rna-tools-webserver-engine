@@ -201,6 +201,48 @@ You can use also internal version for debugging under http://rpdock-vm:8000/ (th
     Requirement already satisfied: wsgiref==0.1.2 in /Users/magnus/miniconda2/envs/py27/lib/python2.7 (from -r install.txt (line 18)) (0.1.2)
     Requirement already satisfied: appnope; sys_platform == "darwin" in /Users/magnus/work/src/rnamasonry_env/lib/python2.7/site-packages (from ipython==4.0.1->-r install.txt (line 8)) (0.1.0)
     Requirement already satisfied: gnureadline; sys_platform == "darwin" and platform_python_implementation == "CPython" in /Users/magnus/work/src/rnamasonry_env/lib/python2.7/site-packages (from ipython==4.0.1->-r install.txt (line 8)) (8.0.0)
+	
+## Create db based on models.py
+	
+	$ python manage.py migrate
+	python manage.py runserver
+	System check identified some issues:
+	
+	WARNINGS:
+	app.Job.interpret_occupancy: (fields.W122) 'max_length' is ignored when used with IntegerField
+		HINT: Remove 'max_length' from field
+	app.Job.nsteps: (fields.W122) 'max_length' is ignored when used with IntegerField
+		HINT: Remove 'max_length' from field
+	app.Job.saxs_format: (fields.W122) 'max_length' is ignored when used with IntegerField
+		HINT: Remove 'max_length' from field
+	app.Job.seq_len: (fields.W122) 'max_length' is ignored when used with IntegerField
+		HINT: Remove 'max_length' from field
+	app.Job.status: (fields.W122) 'max_length' is ignored when used with IntegerField
+		HINT: Remove 'max_length' from field
+	Operations to perform:
+	  Synchronize unmigrated apps: staticfiles, app, messages
+	  Apply all migrations: contenttypes, auth, admin, sites, sessions
+	Synchronizing apps without migrations:
+	  Creating tables...
+	    Creating table app_setting
+	    Creating table app_job
+	    Running deferred SQL...
+	  Installing custom SQL...
+	Running migrations:
+	  Rendering model states... DONE
+	  Applying contenttypes.0001_initial... OK
+	  Applying auth.0001_initial... OK
+	  Applying admin.0001_initial... OK
+	  Applying contenttypes.0002_remove_content_type_name... OK
+	  Applying auth.0002_alter_permission_name_max_length... OK
+	  Applying auth.0003_alter_user_email_max_length... OK
+	  Applying auth.0004_alter_user_username_opts... OK
+	  Applying auth.0005_alter_user_last_login_null... OK
+	  Applying auth.0006_require_contenttypes_0002... OK
+	  Applying sessions.0001_initial... OK
+	  Applying sites.0001_initial... OK
+	Performing system checks...
+
 
 ## Create superuser account
 
