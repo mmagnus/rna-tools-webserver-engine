@@ -254,3 +254,7 @@ You can use also internal version for debugging under http://rpdock-vm:8000/ (th
 	Password:
 	Password (again):
 	Superuser created successfully.
+
+ ## Run runme_dev.sh
+
+ and see if you can reach http://localhost:8999/admin/
